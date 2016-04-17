@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery test</title>
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <script type="text/javascript" src="js/jQuery-1.12.2.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+    <style type="text/css">
+    #container {
+        font-family: 'Microsoft Yahei';
+        margin: 0 100px;
+    }
+    
+    .move-box {
+        width: 232px;
+        height: 88px;
+        background: #999;
+        font-weight: bold;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        vertical-align: top;
+    }
+    
+    .option-box {
+        position: absolute;
+        top: 90px;
+        left: 0px;
+    }
+    
+    #photos {
+        list-style: none;
+    }
+    
+    #photos li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+    
+    #tooltip {
+        position: absolute;
+    }
+    
+    .color {
+        color: orange;
+    }
+    
+    .text {
+        font-size: 24px;
+    }
+    
+    .panel {
+        padding: 60px;
+        background: #eee;
+        color: #fff;
+        font-size: 50px;
+        font-weight: bold;
+        width: 600px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">jQuery</div>
+        <div class="member">
+            <div class="reg">注册</div>
+            <div class="login">登录</div>
+        </div>
+    </header>
+    <div id="container">
+        <!-- 操作节点 -->
+        <div>
+            <div class="node">
+                <p>您最喜欢吃的水果是：</p>
+                <ul>
+                    <li>pear</li>
+                    <li>apple</li>
+                    <li>banana</li>
+                    <li title="orange">orange</li>
+                    <li>strawberry</li>
+                </ul>
+            </div>
+            <div>
+                <input id="append" type="button" value="append()">
+                <input id="appendTo" type="button" value="appendTo()">
+                <input id="prepend" type="button" value="prepend()">
+                <input id="prependTo" type="button" value="prependTo()">
+                <input id="after" type="button" value="after()">
+                <input id="insertAfter" type="button" value="insertAfter()">
+                <input id="before" type="button" value="before()">
+                <input id="insertBefore" type="button" value="insertBefore()">
+            </div>
+            <div>
+                <input id="clone" type="button" value="clone()">
+                <input id="replaceWith" type="button" value="replaceWith()">
+                <input id="remove" type="button" value="remove()">
+            </div>
+            <div>
+                <input id="addClass" type="button" value="addClass()">
+                <input id="removeClass" type="button" value="removeClass()">
+                <input id="toggleClass" type="button" value="toggleClass()">
+            </div>
+        </div>
+        <hr>
+        <!-- 属性 -->
+        <div style="height:150px;">
+            <a class="link" href="http://www.baidu.com">我是个普普通通的链接</a>
+            <p>a标签的target属性是：<span class="target-val"></span></p>
+            <p>a标签的href属性是：<span class="href-val"></span></p>
+            <button id="target">设置target并显示</button>
+            <button id="href">改变href</button>
+        </div>
+        <!-- 事件和动画 -->
+        <hr style="background:#9acae0; height:5px;border:none;">
+        <div style="height:100px;">
+            <p class="chain">jQuery链式
+                <br>
+            </p>
+            <button id="chain">运行</button>
+        </div>
+        <hr>
+        <div>
+            <div class="panel">Welcome to jQuery！</div>
+            <button id="panel">新建button并绑定事件</button>
+        </div>
+        <hr>
+        <div style="height:100px;">
+            <p class="toggle">.toggle(speed,cb) 切换hide()和show()</p>
+            <button id="toggle" type="button">显示/隐藏</button>
+        </div>
+        <hr>
+        <div style="height:100px;">
+            <div class="fade-box">
+                <p>.fadeOut(speed,cb)</p>
+                <p>.fadeIn(speed,cb)</p>
+            </div>
+            <button id="fadeout">淡出</button>
+            <button id="fadein">淡入</button>
+        </div>
+        <hr>
+        <div style="position:relative; height:120px;">
+            <div class="move-box">
+                <p>i am a moved box</p>
+                <p>.animate({params},speed,cb)</p>
+            </div>
+            <br>
+            <div class="option-box">
+                <button id="move-box">开始动画</button>
+                <button id="stop">停止动画</button>
+            </div>
+        </div>
+        <hr>
+        <div style="height:400px;">
+            <ul id="photos">
+                <li>
+                    <a href="img/sample1.jpg" class="tooltip" title="sample1"><img src="img/sample1_sm.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="img/sample2.jpg" class="tooltip" title="sample2"><img src="img/sample2_sm.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="img/sample3.jpg" class="tooltip" title="sample3"><img src="img/sample3_sm.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- login box -->
+    <div id="login">
+        <h2><img src="img/close.png" alt="" class="close">网站登录</h2>
+        <form name="login">
+            <div class="user">
+                账号：
+                <input class="user" type="text" name="user">
+            </div>
+            <div class="pass">
+                密码：
+                <input class="pass" type="password" name="pass">
+            </div>
+            <div class="button">
+                <input class="sub" type="button" name="sub">
+            </div>
+            <div class="other">注册新用户 | 忘记密码？</div>
+        </form>
+    </div>
+
+    <!-- share box -->
+    <div id="share">
+        <h2>分享到</h2>
+        <ul>
+            <li><a href="###" class="a">一键分享</a></li>
+            <li><a href="###" class="b">新浪微博</a></li>
+            <li><a href="###" class="c">人人网</a></li>
+            <li><a href="###" class="d">百度相册</a></li>
+            <li><a href="###" class="e">腾讯朋友</a></li>
+            <li><a href="###" class="f">豆瓣网</a></li>
+            <li><a href="###" class="g">百度新首页</a></li>
+            <li><a href="###" class="h">和讯微博</a></li>
+            <li><a href="###" class="i">QQ 空间</a></li>
+            <li><a href="###" class="j">百度搜藏</a></li>
+            <li><a href="###" class="k">腾讯微博</a></li>
+            <li><a href="###" class="l">开心网</a></li>
+            <li><a href="###" class="m">百度贴吧</a></li>
+            <li><a href="###" class="n">搜狐微博</a></li>
+            <li><a href="###" class="o">QQ 好友</a></li>
+            <li><a href="###" class="p">更多...</a></li>
+        </ul>
+        <div class="share_footer"><a href="###">百度分享</a><span></span></div>
+    </div>
+
+    <!-- shade -->
+    <div id="shade"></div>
+</body>
+
+</html>
